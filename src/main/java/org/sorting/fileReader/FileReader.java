@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class FileReader {
-    public ArrayList<Integer> fileReader(String fileName){
+    public ArrayList<Integer> fileReaderBySemicolon(String fileName){
         Path path = Paths.get("src", "main", "resources", fileName);
         ArrayList<Integer> numbersFromFile = new ArrayList<>();
 
@@ -23,6 +23,30 @@ public class FileReader {
                         } catch (NumberFormatException e) {
                             System.err.println("Invalid number format: " + number);
                         }
+                    }
+                }
+            } catch (IOException e) {
+                System.err.println("Error reading file: " + e.getMessage());
+            }
+        } else {
+            System.err.println("File does not exist: " + path);
+        }
+
+        return numbersFromFile;
+    }
+
+    public ArrayList<Integer> fileReaderLineByLine(String fileName){
+        Path path = Paths.get("src", "main", "resources", fileName);
+        ArrayList<Integer> numbersFromFile = new ArrayList<>();
+
+        if (Files.exists(path)) {
+            try (BufferedReader reader = Files.newBufferedReader(path)) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    try {
+                        numbersFromFile.add(Integer.parseInt(line.trim()));
+                    } catch (NumberFormatException e) {
+                        System.err.println("Invalid number format: " + line);
                     }
                 }
             } catch (IOException e) {

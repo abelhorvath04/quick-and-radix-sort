@@ -113,7 +113,7 @@ public class SortingMenu {
                     String fileMenuInput = sc.nextLine();
                     switch (fileMenuInput) {
                         case "1" -> currentState = "LINE_BY_LINE_MENU";
-                        case "2" -> SortingController.sortFromFileDelimited(selectedSortType, ";");
+                        case "2" -> SortingController.sortFromFileDelimited(selectedSortType);
                         case "9" -> currentState = "SUB_MENU";
                         default -> System.out.println("Wrong input!");
                     }
@@ -122,9 +122,9 @@ public class SortingMenu {
                     printLineByLineOptions();
                     String lineMenuInput = sc.nextLine();
                     switch (lineMenuInput) {
-                        case "1" -> SortingController.sortFromFileBySemicolon(selectedSortType, "1-100");
-                        case "2" -> SortingController.sortFromFileBySemicolon(selectedSortType, "1-1000");
-                        case "3" -> SortingController.sortFromFileBySemicolon(selectedSortType, ">1000");
+                        case "1" -> SortingController.sortFromFileLineByLine(selectedSortType, "1-100");
+                        case "2" -> SortingController.sortFromFileLineByLine(selectedSortType, "1-1000");
+                        case "3" -> SortingController.sortFromFileLineByLine(selectedSortType, ">1000");
                         case "9" -> currentState = "FILE_MENU";
                         default -> System.out.println("Wrong input!");
                     }
