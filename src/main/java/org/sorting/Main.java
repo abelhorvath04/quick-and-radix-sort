@@ -1,6 +1,6 @@
 package org.sorting;
 
-import org.sorting.menu.Menu;
+import org.sorting.menu.SortingMenu;
 
 /**
  * Entry point of the application.
@@ -14,6 +14,6 @@ public class Main {
      * @param args command-line args
      */
     public static void main(String[] args) {
-            Menu.programStart();
+            SortingMenu.programStart();
     }
 }
