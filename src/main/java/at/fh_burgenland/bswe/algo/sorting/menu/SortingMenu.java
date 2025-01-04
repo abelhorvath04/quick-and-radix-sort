@@ -1,6 +1,6 @@
-package org.sorting.menu;
+package at.fh_burgenland.bswe.algo.sorting.menu;
 
-import org.sorting.controller.SortingController;
+import at.fh_burgenland.bswe.algo.sorting.controller.SortingController;
 
 import java.util.Scanner;
 

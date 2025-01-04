@@ -1,6 +1,6 @@
-package org.sorting.controller;
+package at.fh_burgenland.bswe.algo.sorting.controller;
 
-import org.sorting.service.SortingService;
+import at.fh_burgenland.bswe.algo.sorting.service.SortingService;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,6 @@ public class SortingController {
     public static void sortFromFileDelimited(String sortType) {
         System.out.println("File input selected with delimiter ';' for: " + sortType);
         ArrayList<Integer> numbersFromFile = sortingService.getNumbersFromFileBySemicolon("digits.txt");
-        printNumbers(numbersFromFile);
         sortingService.sortNumbers(sortType, numbersFromFile);
     }
 
@@ -59,19 +58,6 @@ public class SortingController {
             }
         }
 
-        printNumbers(numbersFromFile);
         sortingService.sortNumbers(sortType, numbersFromFile);
-    }
-
-    /**
-     * Prints the numbers in the provided list to the console.
-     * This method iterates through the provided list of numbers and prints each number to the console.
-     *
-     * @param numbers the list of numbers to print
-     */
-    public static void printNumbers(ArrayList<Integer> numbers) {
-        for (int num : numbers) {
-            System.out.println(num);
-        }
     }
 }

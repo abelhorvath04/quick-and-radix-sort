@@ -1,6 +1,6 @@
-package org.sorting;
+package at.fh_burgenland.bswe.algo.sorting;
 
-import org.sorting.menu.SortingMenu;
+import at.fh_burgenland.bswe.algo.sorting.menu.SortingMenu;
 
 /**
  * Entry point of the application.
