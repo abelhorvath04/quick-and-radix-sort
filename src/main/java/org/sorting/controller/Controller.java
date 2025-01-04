@@ -8,6 +8,7 @@ public class Controller {
     private final static Radix radixSort = new Radix();
 
     public static void sortManually(String sortType) {
+        
         System.out.println("Manual data input selected for: " + sortType);
         // TODO LOGIC OF THE DATA PROCESS -> by the end array with numbers
         SortingSelector(sortType);
