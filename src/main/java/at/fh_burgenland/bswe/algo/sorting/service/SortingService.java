@@ -1,8 +1,8 @@
-package org.sorting.service;
+package at.fh_burgenland.bswe.algo.sorting.service;
 
-import org.sorting.fileReader.FileReader;
-import org.sorting.quick.Quick;
-import org.sorting.radix.Radix;
+import at.fh_burgenland.bswe.algo.sorting.quick.Quick;
+import at.fh_burgenland.bswe.algo.sorting.radix.Radix;
+import at.fh_burgenland.bswe.algo.sorting.fileReader.FileReader;
 
 import java.util.ArrayList;
 import java.util.Scanner;
