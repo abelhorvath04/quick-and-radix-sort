@@ -1,10 +1,10 @@
 package org.sorting.menu;
 
-import org.sorting.controller.Controller;
+import org.sorting.controller.SortingController;
 
 import java.util.Scanner;
 
-public class Menu {
+public class SortingMenu {
     private static final Scanner sc = new Scanner(System.in);
 
     /**
@@ -35,10 +35,37 @@ public class Menu {
      */
     public static void printSubMenu() {
         String menu = """
-                1 - Add number manually
+                1 - Add numbers manually
                 2 - Read numbers from file
                 
                 9 - Back to Main Menu
+                """;
+        System.out.println(menu);
+    }
+
+    /**
+     * Show File Reading Submenu.
+     */
+    public static void printFileReadMenu() {
+        String menu = """
+                1 - Read file line by line
+                2 - Read file with ';' delimiter
+                
+                9 - Back to Sub Menu
+                """;
+        System.out.println(menu);
+    }
+
+    /**
+     * Show Line-by-Line Reading Submenu.
+     */
+    public static void printLineByLineOptions() {
+        String menu = """
+                1 - Numbers between 1-100
+                2 - Numbers between 1-1000
+                3 - Numbers greater than 1000
+                
+                9 - Back to File Reading Menu
                 """;
         System.out.println(menu);
     }
@@ -75,9 +102,30 @@ public class Menu {
                     printSubMenu();
                     String userSubMenuInput = sc.nextLine();
                     switch (userSubMenuInput) {
-                        case "1" -> Controller.sortManually(selectedSortType);
-                        case "2" -> Controller.sortFromFile(selectedSortType);
+                        case "1" -> SortingController.sortManually(selectedSortType);
+                        case "2" -> currentState = "FILE_MENU";
                         case "9" -> currentState = "MAIN_MENU";
+                        default -> System.out.println("Wrong input!");
+                    }
+                }
+                case "FILE_MENU" -> {
+                    printFileReadMenu();
+                    String fileMenuInput = sc.nextLine();
+                    switch (fileMenuInput) {
+                        case "1" -> currentState = "LINE_BY_LINE_MENU";
+                        case "2" -> SortingController.sortFromFileDelimited(selectedSortType, ";");
+                        case "9" -> currentState = "SUB_MENU";
+                        default -> System.out.println("Wrong input!");
+                    }
+                }
+                case "LINE_BY_LINE_MENU" -> {
+                    printLineByLineOptions();
+                    String lineMenuInput = sc.nextLine();
+                    switch (lineMenuInput) {
+                        case "1" -> SortingController.sortFromFileBySemicolon(selectedSortType, "1-100");
+                        case "2" -> SortingController.sortFromFileBySemicolon(selectedSortType, "1-1000");
+                        case "3" -> SortingController.sortFromFileBySemicolon(selectedSortType, ">1000");
+                        case "9" -> currentState = "FILE_MENU";
                         default -> System.out.println("Wrong input!");
                     }
                 }
