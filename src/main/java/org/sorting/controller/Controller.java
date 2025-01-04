@@ -1,4 +1,4 @@
-package org.sorting.Controller;
+package org.sorting.controller;
 
 import org.sorting.quick.Quick;
 import org.sorting.radix.Radix;

@@ -1,6 +1,6 @@
 package org.sorting.menu;
 
-import org.sorting.Controller.Controller;
+import org.sorting.controller.Controller;
 
 import java.util.Scanner;
 
