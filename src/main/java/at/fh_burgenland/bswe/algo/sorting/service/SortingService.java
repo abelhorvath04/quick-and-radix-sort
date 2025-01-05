@@ -82,14 +82,22 @@ public class SortingService {
      * @param numbers  the list of integers to be sorted.
      */
     public void sortNumbers(String sortType, ArrayList<Integer> numbers) {
-        if (numbers.isEmpty()) {
-            System.out.println("The list is empty.");
-            return;
-        }
+        if (checkEdgeCases(numbers)) return;
         switch (sortType) {
             case "quick" -> quickSort.sort(numbers);
             case "radix" -> radixSort.sort(numbers);
             default -> System.out.println("Invalid sort type!");
         }
+    }
+
+    private static boolean checkEdgeCases(ArrayList<Integer> numbers) {
+        if (numbers.isEmpty()) {
+            System.out.println("The list is empty.");
+            return true;
+        } else if (numbers.size() == 1) {
+            System.out.println("There is only one element: " + numbers.get(0));
+            return true;
+        }
+        return false;
     }
 }
