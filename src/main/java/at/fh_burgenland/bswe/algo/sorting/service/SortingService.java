@@ -82,6 +82,10 @@ public class SortingService {
      * @param numbers  the list of integers to be sorted.
      */
     public void sortNumbers(String sortType, ArrayList<Integer> numbers) {
+        if (numbers.isEmpty()) {
+            System.out.println("The list is empty.");
+            return;
+        }
         switch (sortType) {
             case "quick" -> quickSort.sort(numbers);
             case "radix" -> radixSort.sort(numbers);
