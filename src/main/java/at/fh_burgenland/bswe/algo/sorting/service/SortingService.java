@@ -80,17 +80,19 @@ public class SortingService {
      *
      * @param sortType the type of sorting algorithm to use (e.g., "quick", "radix").
      * @param numbers  the list of integers to be sorted.
+     * @return numbers for testing.
      */
-    public void sortNumbers(String sortType, ArrayList<Integer> numbers) {
-        if (checkEdgeCases(numbers)) return;
+    public ArrayList<Integer> sortNumbers(String sortType, ArrayList<Integer> numbers) {
+        if (checkEdgeCases(numbers) || isSorted(numbers)) return numbers;
         switch (sortType) {
             case "quick" -> quickSort.sort(numbers);
             case "radix" -> radixSort.sort(numbers);
             default -> System.out.println("Invalid sort type!");
         }
+        return numbers;
     }
 
-    private static boolean checkEdgeCases(ArrayList<Integer> numbers) {
+    public boolean checkEdgeCases(ArrayList<Integer> numbers) {
         if (numbers.isEmpty()) {
             System.out.println("The list is empty.");
             return true;
@@ -99,5 +101,15 @@ public class SortingService {
             return true;
         }
         return false;
+    }
+
+    public boolean isSorted(ArrayList<Integer> numbers) {
+        for (int i = 1; i < numbers.size(); i++) {
+            if (numbers.get(i) < numbers.get(i - 1)) {
+                return false;
+            }
+        }
+        System.out.println("The list is already sorted.");
+        return true;
     }
 }
